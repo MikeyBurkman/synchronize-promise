@@ -3,16 +3,16 @@ For "single-thread synchronizing" async promise functions
 
 ### But Node is already single-threaded?
 This doesn't change any of that. This library is about making sure that critical sections, that involve async
-code, is kept "single-threaded". This should be familiar if you've ever used the `synchronized` keyword in Java.
+code, are kept "single-threaded". This should be familiar if you've ever used the `synchronized` keyword in Java.
 
 ### Example?
-Say you have a function called by an event listener. For whatever reason, though, this function can't be
-executed in parallel.
+Say you have a function called by an event listener:
 ```js
 service.on('message', (message) => {
   updateDatabase(message)
     .then((res) => logAudit(res))
     .catch((err) => logAuditError(err));
+});
 ```
 
 What happens if `updateDatabase` isn't thread-safe? What if, for whatever reason, you need to ensure that 
@@ -28,6 +28,7 @@ service.on('message', (message) => {
   updateDatabaseSynchronized(message)
     .then((res) => logAudit(res))
     .catch((err) => logAuditError(err));
+});
 ```
 
 Now if multiple `message` events come in quick succession, the calls will be queued up and executed 
