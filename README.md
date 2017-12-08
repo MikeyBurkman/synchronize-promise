@@ -12,6 +12,7 @@ service.on('message', (message) => {
   updateDatabase(message)
     .then((res) => logAudit(res))
     .catch((err) => logAuditError(err));
+});
 ```
 
 What happens if `updateDatabase` isn't thread-safe? What if, for whatever reason, you need to ensure that 
