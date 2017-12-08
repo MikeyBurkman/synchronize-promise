@@ -1,0 +1,31 @@
+{
+  "name": "single-thread-promise",
+  "version": "1.0.0",
+  "description": "For \"single-threading\" an async function. Similar to Java's synchronize",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MikeyBurkman/single-thread-promise.git"
+  },
+  "keywords": [
+    "promise",
+    "single",
+    "thread",
+    "synchronize"
+  ],
+  "author": "MikeyBurkman",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MikeyBurkman/single-thread-promise/issues"
+  },
+  "homepage": "https://github.com/MikeyBurkman/single-thread-promise#readme",
+  "devDependencies": {
+    "jest": "^21.2.1"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1"
+  }
+}
